@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2010 Felix Bechstein
+	-->
+	<!--
+		This file is part of WebSMS. This program is free software; you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation; either
+		version 3 of the License, or (at your option) any later version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+	<string name="app_name">WebSMS - my-cool-sms.com</string>
+	<string name="app_version">1.0</string>
+	<string name="connector_author">Lado Kumsiashvili &lt;herrlado@gmail.com&gt;
+	</string>
+	<string name="connector_name">my-cool-sms.com</string>
+	<string name="connector_preferences">Preferences - my-cool-sms.com</string>
+	<string name="enable_mycoolsms">Enable my-cool-sms.com</string>
+	<string name="mycoolsms_hint">Create new my-cool-sms.com account</string>
+	<string name="mycoolsms_url">https://www.my-cool-sms.com/signup.php</string>
+
+	<string name="show_sms_amount">Show free sms amount</string>
+	<string name="show_sms_amount_hint">Show sms amount, rather than amount of money.</string>
+
+	<string name="http_error_send_1">Invalid Login Credentials!</string>
+	<string name="http_error_send_2">IP Lockdown Violation </string>
+	<string name="http_error_send_3">Invalid Parameters </string>
+	<string name="http_error_send_4">Out of Credit </string>
+	<string name="http_error_send_5">Delivery Error, Gateway rejected the message. No
+		charge applies. </string>
+	<string name="http_error_send_6">Destination Number Opted Out. </string>
+	<string name="http_error_send_7">Internal Error </string>
+	<string name="http_error_send_8">Mandatory Parameter(s) missing. </string>
+	<string name="http_error_send_9">Invalid Parameter count </string>
+	<string name="http_error_send_10">API not enabled for this user account. </string>
+
+	<string name="http_error_balance_1">Invalid Login Credentials</string>
+	<string name="http_error_balance_2">IP Lockdown Violation</string>
+	<string name="http_error_balance_7">Internal Error</string>
+	<string name="http_error_balance_8">Mandatory parameters missing</string>
+	<string name="http_error_balance_10">API feature disabled in this account</string>
+</resources>
