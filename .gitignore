@@ -1,0 +1,5 @@
+/bin
+/local.properties
+/gen
+
+.ant-targets-build.xml
