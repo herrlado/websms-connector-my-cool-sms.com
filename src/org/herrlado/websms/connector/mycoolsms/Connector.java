@@ -18,30 +18,23 @@
  */
 package org.herrlado.websms.connector.mycoolsms;
 
-import java.lang.ref.PhantomReference;
 import java.lang.reflect.Field;
-import java.math.BigDecimal;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.message.BasicNameValuePair;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager; //import de.ub0r.android.websms.connector.common.BasicConnector;
+import android.preference.PreferenceManager;
 import de.ub0r.android.lib.apis.TelephonyWrapper;
 import de.ub0r.android.websms.connector.common.ConnectorCommand;
 import de.ub0r.android.websms.connector.common.ConnectorSpec;
 import de.ub0r.android.websms.connector.common.Log;
 import de.ub0r.android.websms.connector.common.Utils;
 import de.ub0r.android.websms.connector.common.WebSMSException;
-import de.ub0r.android.websms.connector.common.ConnectorSpec.SubConnectorSpec;
 
 /**
  * AsyncTask to manage IO to cherry-sms.com API.
@@ -240,18 +233,29 @@ public final class Connector extends
 		doUpdateImpl(ConnectorContext.create(context, intent));
 	}
 
+	/**
+	 * 
+	 * @param ctx
+	 * @return
+	 */
 	private static String getSendURL(final ConnectorContext ctx) {
 		return getBaseLoginUrl(API_SEND_URL, ctx);
 	}
 
+	/**
+	 * @param ctx
+	 * @return
+	 */
 	private static String getUpdateURL(final ConnectorContext ctx) {
 		return getBaseLoginUrl(API_BALANCE_URL, ctx);
 	}
 
 	/**
+	 * BaseUrl with credentials specified
+	 * 
 	 * @param url
 	 * @param ctx
-	 *            return url
+	 * @return url
 	 */
 	private static String getBaseLoginUrl(final String url, ConnectorContext ctx) {
 		StringBuilder sb = new StringBuilder();
@@ -265,9 +269,15 @@ public final class Connector extends
 						ctx.getPreferences().getString(
 								Preferences.PREFS_PASSWORD, ""));
 		return sb.toString();
-
 	}
 
+	/**
+	 * 
+	 * makce ucs2 hex without leading \\u
+	 * 
+	 * @param str
+	 * @return
+	 */
 	public static String convertUnicodeToEncoded(String str) {
 		int len = str.length();
 		StringBuffer outBuffer = new StringBuffer(len * 2);
@@ -297,7 +307,6 @@ public final class Connector extends
 	 */
 	private static char toHex(int nibble) {
 		char hexChar = HEX_DIGITS[(nibble & 0xF)];
-
 		return hexChar;
 	}
 
