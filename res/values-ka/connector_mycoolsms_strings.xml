@@ -24,5 +24,7 @@
 	<string name="connector_preferences">my-cool-sms.com პარამეტრები</string>
 	<string name="enable_mycoolsms">my-cool-sms.com აქტივირება</string>
 	<string name="mycoolsms_hint">ახალი cherry-sms.com ანგარიში</string>
-
+	
+	<string name="error_long_for_ucs2">შეტყობინება დაშვებულზე უფრო გრძელია. მაქსიმალური სიგრძე შეადგენს 70 სიმბოლოს(ucs2).</string>
+	<string name="error_long_for_gsm">შეტყობინება დაშვებულზე უფრო გრძელია. მაქსიმალური სიგრძე შეადგენს 160 სიმბოლოს(gsm).</string>
 </resources>

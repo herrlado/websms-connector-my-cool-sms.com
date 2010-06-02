@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry kind="lib" path="lib/WebSMS-Connector-API.jar" sourcepath="/websms/connectors/common/libsrc/WebSMS-Connector-API-src.jar"/>
+	<classpathentry kind="src" path="ub0rlib"/>
+	<classpathentry kind="src" path="websmsAPI"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

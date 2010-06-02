@@ -12,6 +12,7 @@ public final class R {
     }
     public static final class drawable {
         public static final int icon=0x7f020000;
+        public static final int stat_notify_sms_pending=0x7f020001;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
@@ -19,59 +20,61 @@ public final class R {
         public static final int connector_author=0x7f040002;
         public static final int connector_name=0x7f040003;
         public static final int connector_preferences=0x7f040004;
-        public static final int create_account_=0x7f04002b;
-        public static final int custom_sender_=0x7f04002e;
+        public static final int create_account_=0x7f04002d;
+        public static final int custom_sender_=0x7f040030;
         public static final int enable_mycoolsms=0x7f040005;
-        public static final int error=0x7f04001d;
-        public static final int error_http=0x7f04001e;
-        public static final int error_http_header_missing=0x7f040027;
-        public static final int error_input=0x7f040026;
-        public static final int error_mail=0x7f04001f;
-        public static final int error_pw=0x7f040020;
-        public static final int error_sender=0x7f040021;
-        public static final int error_sender_unregistered=0x7f040022;
-        public static final int error_sendlater_quater=0x7f040028;
-        public static final int error_server=0x7f040023;
-        public static final int error_service=0x7f040024;
-        public static final int error_wrongcaptcha=0x7f040025;
-        public static final int http_error_balance_1=0x7f040014;
-        public static final int http_error_balance_10=0x7f040018;
-        public static final int http_error_balance_2=0x7f040015;
-        public static final int http_error_balance_7=0x7f040016;
-        public static final int http_error_balance_8=0x7f040017;
-        public static final int http_error_send_1=0x7f04000a;
-        public static final int http_error_send_10=0x7f040013;
-        public static final int http_error_send_2=0x7f04000b;
-        public static final int http_error_send_3=0x7f04000c;
-        public static final int http_error_send_4=0x7f04000d;
-        public static final int http_error_send_5=0x7f04000e;
-        public static final int http_error_send_6=0x7f04000f;
-        public static final int http_error_send_7=0x7f040010;
-        public static final int http_error_send_8=0x7f040011;
-        public static final int http_error_send_9=0x7f040012;
+        public static final int error=0x7f04001f;
+        public static final int error_http=0x7f040020;
+        public static final int error_http_header_missing=0x7f040029;
+        public static final int error_input=0x7f040028;
+        public static final int error_long_for_gsm=0x7f04001a;
+        public static final int error_long_for_ucs2=0x7f040019;
+        public static final int error_mail=0x7f040021;
+        public static final int error_pw=0x7f040022;
+        public static final int error_sender=0x7f040023;
+        public static final int error_sender_unregistered=0x7f040024;
+        public static final int error_sendlater_quater=0x7f04002a;
+        public static final int error_server=0x7f040025;
+        public static final int error_service=0x7f040026;
+        public static final int error_wrongcaptcha=0x7f040027;
+        public static final int http_error_balance_001=0x7f040014;
+        public static final int http_error_balance_002=0x7f040015;
+        public static final int http_error_balance_007=0x7f040016;
+        public static final int http_error_balance_008=0x7f040017;
+        public static final int http_error_balance_010=0x7f040018;
+        public static final int http_error_send_001=0x7f04000a;
+        public static final int http_error_send_002=0x7f04000b;
+        public static final int http_error_send_003=0x7f04000c;
+        public static final int http_error_send_004=0x7f04000d;
+        public static final int http_error_send_005=0x7f04000e;
+        public static final int http_error_send_006=0x7f04000f;
+        public static final int http_error_send_007=0x7f040010;
+        public static final int http_error_send_008=0x7f040011;
+        public static final int http_error_send_009=0x7f040012;
+        public static final int http_error_send_010=0x7f040013;
         /**  Common strings. 
  Common strings. 
  Common strings. 
          */
-        public static final int info_text=0x7f040019;
+        public static final int info_text=0x7f04001b;
         public static final int mycoolsms_hint=0x7f040006;
         public static final int mycoolsms_url=0x7f040007;
-        public static final int password_=0x7f04002a;
-        public static final int send_logs_=0x7f040030;
-        public static final int send_logs_hint=0x7f040031;
-        public static final int sender_hint=0x7f04002f;
-        public static final int sendlog_install=0x7f040035;
-        public static final int sendlog_install_=0x7f040034;
-        public static final int sendlog_run=0x7f040033;
-        public static final int sendlog_run_=0x7f040032;
+        public static final int password_=0x7f04002c;
+        public static final int send_logs_=0x7f040032;
+        public static final int send_logs_hint=0x7f040033;
+        public static final int sender_hint=0x7f040031;
+        public static final int sendlog_install=0x7f040037;
+        public static final int sendlog_install_=0x7f040036;
+        public static final int sendlog_run=0x7f040035;
+        public static final int sendlog_run_=0x7f040034;
         public static final int show_sms_amount=0x7f040008;
         public static final int show_sms_amount_hint=0x7f040009;
-        public static final int stat_notify_IO=0x7f04001c;
-        public static final int stat_notify_sending=0x7f04001b;
-        public static final int stat_notify_sms_pending=0x7f04001a;
-        public static final int use_derfault_sender_=0x7f04002c;
-        public static final int use_derfault_sender_hint=0x7f04002d;
-        public static final int username_=0x7f040029;
+        public static final int stat_notify_IO=0x7f04001e;
+        public static final int stat_notify_sending=0x7f04001d;
+        public static final int stat_notify_sms_pending=0x7f04001c;
+        public static final int use_derfault_sender_=0x7f04002e;
+        public static final int use_derfault_sender_hint=0x7f04002f;
+        public static final int username_=0x7f04002b;
     }
     public static final class xml {
         public static final int connector_mycoolsms_prefs=0x7f030000;

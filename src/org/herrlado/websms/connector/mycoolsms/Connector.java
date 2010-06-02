@@ -17,20 +17,25 @@
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
 package org.herrlado.websms.connector.mycoolsms;
+
 import java.lang.ref.PhantomReference;
+import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-//import de.ub0r.android.websms.connector.common.BasicConnector;
+import android.preference.PreferenceManager; //import de.ub0r.android.websms.connector.common.BasicConnector;
+import de.ub0r.android.lib.apis.TelephonyWrapper;
 import de.ub0r.android.websms.connector.common.ConnectorCommand;
 import de.ub0r.android.websms.connector.common.ConnectorSpec;
 import de.ub0r.android.websms.connector.common.Log;
@@ -41,18 +46,18 @@ import de.ub0r.android.websms.connector.common.ConnectorSpec.SubConnectorSpec;
 /**
  * AsyncTask to manage IO to cherry-sms.com API.
  * 
- * @author flx
+ * @author lado
  */
-public final class Connector extends de.ub0r.android.websms.connector.common.Connector {
+public final class Connector extends
+		de.ub0r.android.websms.connector.common.Connector {
+	/** A table of hex digits */
+	private static final char[] HEX_DIGITS = { '0', '1', '2', '3', '4', '5',
+			'6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 	/** Tag for output. */
 	private static final String TAG = "my-cool-sms.com";
-	///** {@link SubConnectorSpec} ID: with sender. */
-	//private static final String ID_W_SENDER = "w_sender";
-	///** {@link SubConnectorSpec} ID: without sender. */
-	//private static final String ID_WO_SENDER = "wo_sender";
-	
+
 	private static final String API_URL_BASE = "https://www.my-cool-sms.com/api";
-	/**  Send URL. */
+	/** Send URL. */
 	private static final String API_SEND_URL = API_URL_BASE + "/send";
 	/** Balance URL */
 	private static final String API_BALANCE_URL = API_URL_BASE + "/quota";
@@ -62,8 +67,7 @@ public final class Connector extends de.ub0r.android.websms.connector.common.Con
 	 */
 	@Override
 	public ConnectorSpec initSpec(final Context context) {
-		final String name = context
-				.getString(R.string.connector_name);
+		final String name = context.getString(R.string.connector_name);
 		ConnectorSpec c = new ConnectorSpec(name);
 		c.setAuthor(// .
 				context.getString(R.string.connector_author));
@@ -71,7 +75,7 @@ public final class Connector extends de.ub0r.android.websms.connector.common.Con
 		c.setCapabilities(ConnectorSpec.CAPABILITIES_UPDATE
 				| ConnectorSpec.CAPABILITIES_SEND
 				| ConnectorSpec.CAPABILITIES_PREFS);
-		c.addSubConnector("my-cool-sms.com", c.getName(),0);
+		c.addSubConnector("my-cool-sms.com", c.getName(), 0);
 		return c;
 	}
 
@@ -96,51 +100,6 @@ public final class Connector extends de.ub0r.android.websms.connector.common.Con
 	}
 
 	/**
-	 * Check return code from cherry-sms.com.
-	 * 
-	 * @param context
-	 *            {@link Context}
-	 * @param ret
-	 *            return code
-	 * @return true if no error code
-	 * @throws WebSMSException
-	 *             WebSMSException
-	 */
-	private static boolean checkReturnCode(final Context context, final int ret)
-			throws WebSMSException {
-//		Log.d(TAG, "ret=" + ret);
-//		switch (ret) {
-//		case 100:
-//			return true;
-//		case 10:
-//			throw new WebSMSException(context, R.string.error_cherry_10);
-//		case 20:
-//			throw new WebSMSException(context, R.string.error_cherry_20);
-//		case 30:
-//			throw new WebSMSException(context, R.string.error_cherry_30);
-//		case 31:
-//			throw new WebSMSException(context, R.string.error_cherry_31);
-//		case 40:
-//			throw new WebSMSException(context, R.string.error_cherry_40);
-//		case 50:
-//			throw new WebSMSException(context, R.string.error_cherry_50);
-//		case 60:
-//			throw new WebSMSException(context, R.string.error_cherry_60);
-//		case 70:
-//			throw new WebSMSException(context, R.string.error_cherry_70);
-//		case 71:
-//			throw new WebSMSException(context, R.string.error_cherry_71);
-//		case 80:
-//			throw new WebSMSException(context, R.string.error_cherry_80);
-//		case 90:
-//			throw new WebSMSException(context, R.string.error_cherry_90);
-//		default:
-//			throw new WebSMSException(context, R.string.error, " code: " + ret);
-//		}
-		return true;
-	}
-
-	/**
 	 * Send data.
 	 * 
 	 * @param context
@@ -150,39 +109,10 @@ public final class Connector extends de.ub0r.android.websms.connector.common.Con
 	 * @throws WebSMSException
 	 *             WebSMSException
 	 */
-	private void sendData(final Context context, final ConnectorCommand command)
+	private String sendData(ConnectorContext ctx, String url)
 			throws WebSMSException {
 		// do IO
 		try { // get Connection
-			final StringBuilder url = new StringBuilder(API_URL_BASE);
-			final ConnectorSpec cs = this.getSpec(context);
-			final SharedPreferences p = PreferenceManager
-					.getDefaultSharedPreferences(context);
-			url.append("?user=");
-			url.append(Utils.international2oldformat(Utils.getSender(context,
-					command.getDefSender())));
-			url.append("&password=");
-			url.append(Utils.md5(p.getString(Preferences.PREFS_PASSWORD, "")));
-			final String text = command.getText();
-			if (text != null && text.length() > 0) {
-				boolean sendWithSender = false;
-				final String sub = command.getSelectedSubConnector();
-				//if (sub != null && sub.equals(ID_W_SENDER)) {
-					//sendWithSender = true;
-				//}
-				Log.d(TAG, "send with sender = " + sendWithSender);
-				if (sendWithSender) {
-					url.append("&from=1");
-				}
-				url.append("&message=");
-				url.append(URLEncoder.encode(text, "ISO-8859-15"));
-				url.append("&to=");
-				url.append(Utils.joinRecipientsNumbers(Utils
-						.national2international(command.getDefPrefix(), command
-								.getRecipients()), ";", true));
-			} else {
-				url.append("&check=guthaben");
-			}
 			Log.d(TAG, "--HTTP GET--");
 			Log.d(TAG, url.toString());
 			Log.d(TAG, "--HTTP GET--");
@@ -191,106 +121,184 @@ public final class Connector extends de.ub0r.android.websms.connector.common.Con
 					null, null, null);
 			int resp = response.getStatusLine().getStatusCode();
 			if (resp != HttpURLConnection.HTTP_OK) {
-				throw new WebSMSException(context, R.string.error_http, ""
+				throw new WebSMSException(ctx.context, R.string.error_http, ""
 						+ resp);
 			}
 			String htmlText = Utils.stream2str(
 					response.getEntity().getContent()).trim();
 			if (htmlText == null || htmlText.length() == 0) {
-				throw new WebSMSException(context, R.string.error_service);
+				throw new WebSMSException(ctx.context, R.string.error_service);
 			}
 			Log.d(TAG, "--HTTP RESPONSE--");
 			Log.d(TAG, htmlText);
 			Log.d(TAG, "--HTTP RESPONSE--");
-			String[] lines = htmlText.split("\n");
-			htmlText = null;
-			int l = lines.length;
-			if (text != null && text.length() > 0) {
-				try {
-					final int ret = Integer.parseInt(lines[0].trim());
-					checkReturnCode(context, ret);
-					if (l > 1) {
-						cs.setBalance(lines[l - 1].trim());
-					}
-				} catch (NumberFormatException e) {
-					Log.e(TAG, "could not parse ret", e);
-					throw new WebSMSException(e.getMessage());
-				}
-			} else {
-				cs.setBalance(lines[l - 1].trim());
-			}
+			return htmlText;
 		} catch (Exception e) {
 			Log.e(TAG, null, e);
 			throw new WebSMSException(e.getMessage());
 		}
 	}
 
-	
+	protected void doSendImpl(ConnectorContext ctx) throws WebSMSException {
+		String text = ctx.getCommand().getText();
+		int[] result = TelephonyWrapper.getInstance().calculateLength(text,
+				false);
+		String unicode = "0";
+		if (result[3] > 1) {
+			if (text.length() > 70) {
+				throw new WebSMSException(ctx.context,
+						R.string.error_long_for_ucs2);
+			}
+			unicode = "1";
+			text = convertUnicodeToEncoded(text);
+		} else if (text.length() > 160) {
+			throw new WebSMSException(ctx.context, R.string.error_long_for_gsm);
+		}
+
+		String number = ctx.getCommand().getRecipients()[0];
+		StringBuilder sb = new StringBuilder();
+		String url = getSendURL(ctx);
+		sb.append(url);
+		try {
+			sb.append("&number=").append(
+					Utils.national2international(ctx.command.getDefPrefix(),
+							Utils.getRecipientsNumber(number)))
+					.//
+					append("&message=")
+					.append(URLEncoder.encode(text, "utf-8")).//
+					append("&senderid=").append(
+							Utils.getSender(ctx.context, ctx.command
+									.getDefSender())).//
+					append("&unicode=").append(unicode);
+
+			;//
+		} catch (Exception ex) {
+			throw new WebSMSException(ex);
+		}
+		String content = sendData(ctx, sb.toString());
+		validateSend(ctx, content);
+	}
+
 	@Override
 	protected void doSend(Context context, Intent intent)
 			throws WebSMSException {
 		final ConnectorContext ctx = ConnectorContext.create(context, intent);
-
-		String url = getSendURL(ctx);
-		StringBuilder sb = new StringBuilder();
-		String text = ctx.getCommand().getText();
-		sb.append(url);
-		String number = ctx.getCommand().getRecipients()[0];
-		try{
-		sb.append("&number=").append(number).//
-			append("message=").append(URLEncoder.encode(text, "utf-8"));//
-		}catch(Exception ex){
-			throw new WebSMSException(ex);
+		doSendImpl(ctx);
+		try {
+			doUpdateImpl(ctx);
+		} catch (WebSMSException ex) {
+			Log.w(TAG, "Can not retrieve balance after send: "
+					+ ex.getMessage());
 		}
 	}
-	
-	
+
+	private static void validate(ConnectorContext ctx, String prefix,
+			String content) throws WebSMSException {
+		if (!content.startsWith("ERR:")) {
+			return;
+		}
+		content = content.substring(4).trim();
+		Field f = null;
+		int id = -1;
+		try {
+			f = R.string.class.getField(prefix + content);
+			id = f.getInt(null);
+		} catch (Exception ex) {
+			throw new WebSMSException("can not get errorcode: " + content);
+		}
+		throw new WebSMSException(ctx.getContext(), id, content);
+	}
+
+	private static void validateSend(ConnectorContext ctx, String content)
+			throws WebSMSException {
+		validate(ctx, "http_error_send_", content);
+	}
+
+	protected void doUpdateImpl(final ConnectorContext ctx)
+			throws WebSMSException {
+		String url = getUpdateURL(ctx);
+		String content = sendData(ctx, url).trim();
+		validateBalance(ctx, content);
+		try {
+			DecimalFormat twoDForm = new DecimalFormat("#.##");
+			content = twoDForm.format(Double.parseDouble(content));
+		} catch (IllegalArgumentException ex) {
+			throw new WebSMSException("Can not parse a string as amound: "
+					+ content + "; " + ex.getMessage());
+		}
+		this.getSpec(ctx.getContext()).setBalance(content + "\u20AC");
+	}
+
+	private static void validateBalance(ConnectorContext ctx, String content)
+			throws WebSMSException {
+		validate(ctx, "http_error_balance_", content);
+	}
+
 	@Override
 	protected void doUpdate(Context context, Intent intent)
 			throws WebSMSException {
-		final ConnectorContext ctx = ConnectorContext.create(context, intent);
-		String url = getUpdateURL(ctx);
-		HttpResponse response = null;
-		try{
-			response =  ctx.getClient().execute(new HttpGet(url));
-			String content = Utils.stream2str(response.getEntity()
-				.getContent());
-						if(content.startsWith("ERR: ")){
-				throw new WebSMSException(content);//TODO i18n
-			}else{
-				if(content.length() > 0 && content.charAt(content.length() -1) == '\n'){
-					content = content.substring(0,content.length()-1);
-				}
-				this.getSpec(ctx.getContext())
-				.setBalance(content);
-			}
-		}catch(Exception ex){
-			throw new WebSMSException(ex);
-		}
+		doUpdateImpl(ConnectorContext.create(context, intent));
 	}
 
-	private static String getSendURL(final ConnectorContext ctx){
+	private static String getSendURL(final ConnectorContext ctx) {
 		return getBaseLoginUrl(API_SEND_URL, ctx);
 	}
-	
+
 	private static String getUpdateURL(final ConnectorContext ctx) {
 		return getBaseLoginUrl(API_BALANCE_URL, ctx);
 	}
-	
+
 	/**
 	 * @param url
 	 * @param ctx
-	 * return url
+	 *            return url
 	 */
-	private static  String getBaseLoginUrl(final String url, ConnectorContext ctx){
+	private static String getBaseLoginUrl(final String url, ConnectorContext ctx) {
 		StringBuilder sb = new StringBuilder();
-		 sb.append(url).//
-		 append("?username=").//
-		 append(ctx.getPreferences().getString(Preferences.PREFS_USERNAME, "")).//
-		 append("&password=").//
-		 append(ctx.getPreferences().getString(Preferences.PREFS_PASSWORD,""));
-		 return sb.toString(); 
-	
+		sb.append(url).//
+				append("?username=").//
+				append(
+						ctx.getPreferences().getString(
+								Preferences.PREFS_USERNAME, "")).//
+				append("&password=").//
+				append(
+						ctx.getPreferences().getString(
+								Preferences.PREFS_PASSWORD, ""));
+		return sb.toString();
+
 	}
-	
+
+	public static String convertUnicodeToEncoded(String str) {
+		int len = str.length();
+		StringBuffer outBuffer = new StringBuffer(len * 2);
+
+		for (int x = 0; x < len; x++) {
+			char aChar = str.charAt(x);
+			// if ((aChar < 0x0020) || (aChar > 0x007e)) {
+			// outBuffer.append('\\');
+			// outBuffer.append('u');
+			outBuffer.append(toHex((aChar >> 12) & 0xF));
+			outBuffer.append(toHex((aChar >> 8) & 0xF));
+			outBuffer.append(toHex((aChar >> 4) & 0xF));
+			outBuffer.append(toHex(aChar & 0xF));
+			// } else {
+			// outBuffer.append(aChar);
+			// }
+		}
+		return outBuffer.toString();
+	}
+
+	/**
+	 * Converts a nibble to a hex character
+	 * 
+	 * @param nibble
+	 *            the nibble to convert.
+	 * @return a converted character
+	 */
+	private static char toHex(int nibble) {
+		char hexChar = HEX_DIGITS[(nibble & 0xF)];
+
+		return hexChar;
+	}
+
 }
