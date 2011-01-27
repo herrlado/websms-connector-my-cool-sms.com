@@ -8,6 +8,10 @@
 package org.herrlado.websms.connector.mycoolsms;
 
 public final class R {
+    public static final class array {
+        public static final int notes_from_dev=0x7f060001;
+        public static final int updates=0x7f060000;
+    }
     public static final class attr {
     }
     public static final class drawable {
@@ -16,33 +20,58 @@ public final class R {
         public static final int stat_notify_sms_pending=0x7f020002;
     }
     public static final class id {
-        public static final int donate=0x7f060000;
-        public static final int paypalid=0x7f060001;
-        public static final int send=0x7f060002;
+        public static final int accept=0x7f070004;
+        public static final int buttons=0x7f070005;
+        public static final int donate_market=0x7f070001;
+        public static final int donate_paypal=0x7f070000;
+        public static final int extra=0x7f070008;
+        public static final int hide=0x7f070006;
+        public static final int ok=0x7f070007;
+        public static final int paypalid=0x7f070002;
+        public static final int send=0x7f070003;
     }
     public static final class layout {
         public static final int donation=0x7f030000;
+        public static final int list=0x7f030001;
+        public static final int list_item=0x7f030002;
     }
     public static final class string {
-        public static final int app_name=0x7f05002c;
-        public static final int app_version=0x7f05002d;
-        public static final int connector_author=0x7f05002e;
-        public static final int connector_name=0x7f05002f;
-        public static final int connector_preferences=0x7f050030;
-        public static final int create_account_=0x7f050012;
-        public static final int custom_sender_=0x7f050015;
-        public static final int donate_=0x7f050021;
-        public static final int donate_mail=0x7f05001f;
-        public static final int donate_remove_ads_=0x7f050022;
-        public static final int donate_subject=0x7f050020;
-        public static final int donate_url=0x7f05001e;
-        public static final int enable_mycoolsms=0x7f050031;
-        public static final int error=0x7f050004;
+        public static final int about_hint=0x7f050030;
+        public static final int accept_=0x7f05003e;
+        public static final int accept_missing=0x7f05003f;
+        public static final int app_name=0x7f050023;
+        public static final int app_version=0x7f050024;
+        public static final int author_=0x7f050029;
+        public static final int changelog_=0x7f050026;
+        public static final int changelog_notification_=0x7f050043;
+        public static final int changelog_notification_text=0x7f050044;
+        public static final int charge_account_=0x7f05004f;
+        public static final int connector_author=0x7f050048;
+        public static final int connector_name=0x7f050049;
+        public static final int connector_preferences=0x7f05004a;
+        public static final int contact_dev_on_error=0x7f050068;
+        public static final int create_account_=0x7f050018;
+        public static final int custom_language_=0x7f050031;
+        public static final int custom_language_hint=0x7f050032;
+        public static final int custom_sender_=0x7f05001b;
+        public static final int debug_=0x7f05002f;
+        public static final int donate_market_=0x7f050034;
+        public static final int donate_paypal_=0x7f050033;
+        public static final int donate_remove_ads_=0x7f050035;
+        public static final int donate_subject=0x7f050028;
+        public static final int donate_url=0x7f050027;
+        public static final int donator_id_=0x7f050039;
+        public static final int donator_id_hint=0x7f05003a;
+        public static final int enable_chain_sms=0x7f050065;
+        public static final int enable_chain_sms_hint=0x7f050066;
+        public static final int enable_mycoolsms=0x7f05004b;
+        public static final int error=0x7f050003;
+        public static final int error_connection=0x7f050004;
         public static final int error_http=0x7f050005;
         public static final int error_http_header_missing=0x7f05000e;
         public static final int error_input=0x7f05000d;
-        public static final int error_long_for_gsm=0x7f050046;
-        public static final int error_long_for_ucs2=0x7f050045;
+        public static final int error_long_for_gsm=0x7f050064;
+        public static final int error_long_for_ucs2=0x7f050063;
         public static final int error_mail=0x7f050006;
         public static final int error_pw=0x7f050007;
         public static final int error_sender=0x7f050008;
@@ -51,56 +80,125 @@ public final class R {
         public static final int error_server=0x7f05000a;
         public static final int error_service=0x7f05000b;
         public static final int error_wrongcaptcha=0x7f05000c;
-        public static final int http_error_balance_001=0x7f050040;
-        public static final int http_error_balance_002=0x7f050041;
-        public static final int http_error_balance_007=0x7f050042;
-        public static final int http_error_balance_008=0x7f050043;
-        public static final int http_error_balance_010=0x7f050044;
-        public static final int http_error_send_001=0x7f050036;
-        public static final int http_error_send_002=0x7f050037;
-        public static final int http_error_send_003=0x7f050038;
-        public static final int http_error_send_004=0x7f050039;
-        public static final int http_error_send_005=0x7f05003a;
-        public static final int http_error_send_006=0x7f05003b;
-        public static final int http_error_send_007=0x7f05003c;
-        public static final int http_error_send_008=0x7f05003d;
-        public static final int http_error_send_009=0x7f05003e;
-        public static final int http_error_send_010=0x7f05003f;
+        public static final int http_error_balance_001=0x7f05005e;
+        public static final int http_error_balance_002=0x7f05005f;
+        public static final int http_error_balance_007=0x7f050060;
+        public static final int http_error_balance_008=0x7f050061;
+        public static final int http_error_balance_010=0x7f050062;
+        public static final int http_error_send_001=0x7f050054;
+        public static final int http_error_send_002=0x7f050055;
+        public static final int http_error_send_003=0x7f050056;
+        public static final int http_error_send_004=0x7f050057;
+        public static final int http_error_send_005=0x7f050058;
+        public static final int http_error_send_006=0x7f050059;
+        public static final int http_error_send_007=0x7f05005a;
+        public static final int http_error_send_008=0x7f05005b;
+        public static final int http_error_send_009=0x7f05005c;
+        public static final int http_error_send_010=0x7f05005d;
+        public static final int ignore_free_=0x7f050014;
+        public static final int ignore_free_hint=0x7f050015;
+        public static final int ignore_nosender_=0x7f050012;
+        public static final int ignore_nosender_hint=0x7f050013;
+        public static final int ignore_withsender_=0x7f050010;
+        public static final int ignore_withsender_hint=0x7f050011;
         /**  Common strings. 
- Common strings. 
+	<string name="author_">Author:</string> 
+	<string name="version_">Version:</string> 
+	<string name="license_">License:</string> 
+	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string> 
+	<string name="source_">Sourcescode:</string> 
+	<string name="website_">Website:</string> 
+	<string name="debug_">Debug</string> 
+	<string name="about_hint">About this app</string> 
+	<string name="custom_language_">Custom language</string> 
+	<string name="custom_language_hint">Set a custom language.</string> 
+	<string name="donate_paypal_">Donate (Paypal)</string> 
+	<string name="donate_market_">Donate (Market)</string> 
+	<string name="donate_remove_ads_">Donate/remove ads</string> 
+	<string name="remove_ads_">Remove ads</string> 
+	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> 
+	<string name="postdonate">To remove ads, you need to load the <i>noads</i> code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> 
+	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> 
+	<string name="donator_id_hint">Paypal/gmail address</string> 
+	<string name="load_hash_">Load <i>noads</i> code</string> 
+	<string name="sig_loaded">Ads removed!</string> 
+	<string name="sig_failed">Failed to remove ads!</string> 
+	<string name="accept_">Accept Terms</string> 
+	<string name="accept_missing">Please accept terms before sending the data.</string> 
+	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> 
+	<string name="notify_">Forgot to remove the ads?</string> 
+	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> 
+	<string name="author_">Author:</string> 
+	<string name="version_">Version:</string> 
+	<string name="license_">License:</string> 
+	<string name="license">GPLv3 - see http://www.gnu.org/licenses/gpl-3.0.txt</string> 
+	<string name="source_">Sourcescode:</string> 
+	<string name="website_">Website:</string> 
+	<string name="debug_">Debug</string> 
+	<string name="about_hint">About this app</string> 
+	<string name="custom_language_">Custom language</string> 
+	<string name="custom_language_hint">Set a custom language.</string> 
+	<string name="donate_paypal_">Donate (Paypal)</string> 
+	<string name="donate_market_">Donate (Market)</string> 
+	<string name="donate_remove_ads_">Donate/remove ads</string> 
+	<string name="remove_ads_">Remove ads</string> 
+	<string name="predonate">This is an open-source application released under the GPLv3 license. It is free and will remain free. If you really like it or if you are annoyed by the ads, please consider donating. I\'ll remove the ads for you as soon as possible.\nThank you!\n\nThe donation will remove the ads in all apps provided by me.</string> 
+	<string name="postdonate">To remove ads, you need to load the <i>noads</i> code. It is available as soon the donation arrives. Please be patient and drop me a mail if it does not work after one day.</string> 
+	<string name="donator_id_">To verify your donation your donation id (paypal mail address for paypal; gmail address for market) is needed:</string> 
+	<string name="donator_id_hint">Paypal/gmail address</string> 
+	<string name="load_hash_">Load <i>noads</i> code</string> 
+	<string name="sig_loaded">Ads removed!</string> 
+	<string name="sig_failed">Failed to remove ads!</string> 
+	<string name="accept_">Accept Terms</string> 
+	<string name="accept_missing">Please accept terms before sending the data.</string> 
+	<string name="terms">The app will send your donation id along with the md5-hash of your IMEI to the server (http://ub0r.de/donation/). The data is needed to verify your donation.\nThe data is never given to third party and used only for verifying your donation.\n\nIf your phone changes, the <i>noads</i> code will not work anymore. Please drop me a mail to get a new one.</string> 
+	<string name="notify_">Forgot to remove the ads?</string> 
+	<string name="notify_text">To finally remove the ads, you nead to load the <b>noads</b> Code. Click to proceed.</string> 
  Common strings. 
  Common strings. 
  Common strings. 
          */
         public static final int info_text=0x7f050000;
-        public static final int lang=0x7f05001d;
-        public static final int load_hash_=0x7f050028;
-        public static final int mycoolsms_hint=0x7f050032;
-        public static final int mycoolsms_url=0x7f050033;
-        public static final int password_=0x7f050011;
-        public static final int paypal_id_=0x7f050026;
-        public static final int paypal_id_hint=0x7f050027;
-        public static final int postdonate=0x7f050025;
-        public static final int predonate=0x7f050024;
-        public static final int remove_ads_=0x7f050023;
-        public static final int send_logs_=0x7f050017;
-        public static final int send_logs_hint=0x7f050018;
-        public static final int sender_hint=0x7f050016;
-        public static final int sendlog_install=0x7f05001c;
-        public static final int sendlog_install_=0x7f05001b;
-        public static final int sendlog_run=0x7f05001a;
-        public static final int sendlog_run_=0x7f050019;
-        public static final int show_sms_amount=0x7f050034;
-        public static final int show_sms_amount_hint=0x7f050035;
-        public static final int sig_failed=0x7f05002a;
-        public static final int sig_loaded=0x7f050029;
-        public static final int signature_=0x7f05002b;
-        public static final int stat_notify_IO=0x7f050003;
+        public static final int lang=0x7f050025;
+        public static final int license=0x7f05002c;
+        public static final int license_=0x7f05002b;
+        public static final int load_hash_=0x7f05003b;
+        public static final int mycoolsms_charge_url=0x7f05004e;
+        public static final int mycoolsms_create_account_=0x7f050051;
+        public static final int mycoolsms_create_account_url=0x7f050050;
+        public static final int mycoolsms_hint=0x7f050067;
+        public static final int mycoolsms_title=0x7f05004c;
+        public static final int mycoolsms_url=0x7f05004d;
+        public static final int never_show_again=0x7f050045;
+        public static final int notes_from_developer_=0x7f050046;
+        public static final int notes_from_developer_text=0x7f050047;
+        public static final int notify_=0x7f050041;
+        public static final int notify_text=0x7f050042;
+        public static final int password_=0x7f050017;
+        public static final int postdonate=0x7f050038;
+        public static final int predonate=0x7f050037;
+        public static final int remove_ads_=0x7f050036;
+        public static final int send_logs_=0x7f05001d;
+        public static final int send_logs_hint=0x7f05001e;
+        public static final int sender_hint=0x7f05001c;
+        public static final int sendlog_install=0x7f050022;
+        public static final int sendlog_install_=0x7f050021;
+        public static final int sendlog_run=0x7f050020;
+        public static final int sendlog_run_=0x7f05001f;
+        public static final int show_sms_amount=0x7f050052;
+        public static final int show_sms_amount_hint=0x7f050053;
+        public static final int sig_failed=0x7f05003d;
+        public static final int sig_loaded=0x7f05003c;
+        public static final int source_=0x7f05002d;
+        public static final int stat_notify_IO=0x7f050069;
         public static final int stat_notify_sending=0x7f050002;
         public static final int stat_notify_sms_pending=0x7f050001;
-        public static final int use_derfault_sender_=0x7f050013;
-        public static final int use_derfault_sender_hint=0x7f050014;
-        public static final int username_=0x7f050010;
+        public static final int terms=0x7f050040;
+        public static final int use_derfault_sender_=0x7f050019;
+        public static final int use_derfault_sender_hint=0x7f05001a;
+        public static final int username_=0x7f050016;
+        public static final int version_=0x7f05002a;
+        public static final int website_=0x7f05002e;
     }
     public static final class xml {
         public static final int connector_mycoolsms_prefs=0x7f040000;

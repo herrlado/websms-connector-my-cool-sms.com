@@ -16,6 +16,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/>.
  */
+
 package org.herrlado.websms.connector.mycoolsms;
 
 import android.os.Bundle;
@@ -27,23 +28,26 @@ import android.preference.PreferenceActivity;
  * @author lado
  */
 public final class Preferences extends PreferenceActivity {
-	/** Preference key: enabled. */
-	static final String PREFS_ENABLED = "enable_mycoolsms";
+    /** Preference key: enabled. */
+    static final String PREFS_ENABLED = "enable_mycoolsms";
 
-	/** Preference's name: user's password. */
-	static final String PREFS_USERNAME = "username_mycoolsms";
+    /** Preference's name: user's password. */
+    static final String PREFS_USERNAME = "username_mycoolsms";
 
-	/** Preference's name: user's password. */
-	static final String PREFS_PASSWORD = "password_mycoolsms";
-	
-	static final String SHOW_SMS_AMOUNT = "show_sms_amount";
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		this.addPreferencesFromResource(R.xml.connector_mycoolsms_prefs);
-	}
+    /** Preference's name: user's password. */
+    static final String PREFS_PASSWORD = "password_mycoolsms";
+
+    static final String SHOW_SMS_AMOUNT = "show_sms_amount";
+
+    static final String ENABLE_CHAIN_SMS = //
+    "enable_chain_sms";
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.addPreferencesFromResource(R.xml.connector_mycoolsms_prefs);
+    }
 }

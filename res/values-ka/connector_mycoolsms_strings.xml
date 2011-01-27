@@ -27,4 +27,5 @@
 	
 	<string name="error_long_for_ucs2">შეტყობინება დაშვებულზე უფრო გრძელია. მაქსიმალური სიგრძე შეადგენს 70 სიმბოლოს(ucs2).</string>
 	<string name="error_long_for_gsm">შეტყობინება დაშვებულზე უფრო გრძელია. მაქსიმალური სიგრძე შეადგენს 160 სიმბოლოს(gsm).</string>
+	<string name="contact_dev_on_error">შეცდომა! დაუკავშირდი პროგრამისტს!</string>
 </resources>

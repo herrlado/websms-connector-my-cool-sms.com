@@ -38,10 +38,29 @@
 		android:inputType="phone" android:title="@string/custom_sender_"
 		android:dialogTitle="@string/custom_sender_" android:summary="@string/sender_hint"
 		android:dependency="use_default_sender" />
+		
+	<CheckBoxPreference android:key="enable_chain_sms"
+		android:defaultValue="false" android:title="@string/enable_chain_sms"
+		android:inputType="text" android:dependency="enable_mycoolsms"
+		android:summary="@string/enable_chain_sms_hint"
+		android:disableDependentsState="true" />
 
-	<PreferenceScreen android:title="@string/create_account_"
-		android:summary="@string/mycoolsms_hint">
+	<PreferenceScreen android:title="@string/mycoolsms_title">
 		<intent android:action="android.intent.action.VIEW"
 			android:data="@string/mycoolsms_url" />
 	</PreferenceScreen>
+
+	<PreferenceScreen android:title="@string/charge_account_">
+		<intent android:action="android.intent.action.VIEW"
+			android:data="@string/mycoolsms_charge_url" />
+	</PreferenceScreen>
+	
+	<PreferenceScreen android:title="@string/mycoolsms_create_account_">
+		<intent android:action="android.intent.action.VIEW"
+			android:data="@string/mycoolsms_create_account_url" />
+	</PreferenceScreen>
+	
+	
+	
+	
 </PreferenceScreen>

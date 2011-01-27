@@ -24,9 +24,18 @@
 	<string name="connector_name">my-cool-sms.com</string>
 	<string name="connector_preferences">Preferences - my-cool-sms.com</string>
 	<string name="enable_mycoolsms">Enable my-cool-sms.com</string>
-	<string name="mycoolsms_hint">Create new my-cool-sms.com account</string>
-	<string name="mycoolsms_url">https://www.my-cool-sms.com/signup.php</string>
-
+	
+	<string name="mycoolsms_title">https://my-cool-sms.com</string>
+	<string name="mycoolsms_url">https://www.my-cool-sms.com/mobile/index.php?ref=websms</string>
+	
+	<string name="mycoolsms_charge_url">https://www.my-cool-sms.com/mobile/index.php?link_id=select-credit&amp;set-username=&amp;account-exists=1&amp;ref=websms</string>
+	<string name="charge_account_">Charge your credit</string>
+	
+	<string name="mycoolsms_create_account_url">https://www.my-cool-sms.com/mobile/index.php?link_id=select-credit&amp;account-exists=0&amp;ref=websms</string>
+	<string name="mycoolsms_create_account_">Create a new account</string>
+	
+	
+	
 	<string name="show_sms_amount">Show free sms amount</string>
 	<string name="show_sms_amount_hint">Show sms amount, rather than amount of money.</string>
 
@@ -47,8 +56,9 @@
 	<string name="http_error_balance_007">Internal Error</string>
 	<string name="http_error_balance_008">Mandatory parameters missing</string>
 	<string name="http_error_balance_010">API feature disabled in this account</string>
-	<string name="error_long_for_ucs2">The message is too long. Allowed are 70 chars(ucs2).</string>
-	<string name="error_long_for_gsm">The message is too long. Allowed are 160 chars(gsm).</string>
-	
+	<string name="error_long_for_ucs2">The message is too long. Allowed are 70 chars(ucs2). Consider enabling Splitting long messages!</string>
+	<string name="error_long_for_gsm">The message is too long. Allowed are 160 chars(gsm). Consider enabling Splitting long messages!</string>
+	<string name="enable_chain_sms">Split long messages</string>
+	<string name="enable_chain_sms_hint">If the text is longer then allowed, it will be sent splitted.</string>
 	
 </resources>

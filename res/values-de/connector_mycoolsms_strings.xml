@@ -25,6 +25,9 @@
 	
 	
 		
-	<string name="error_long_for_ucs2">Die Nachricht ist zu lang. Erlaubt sind 70 Zeichen(ucs2).</string>
-	<string name="error_long_for_gsm">Die Nachricht ist zu lang. Erlaubt sind 160 Zeichen(gsm).</string>
+	<string name="error_long_for_ucs2">Die Nachricht ist zu lang. Erlaubt sind 70 Zeichen(ucs2). Eventuell Langen Text aufteilen Option aktivieren!</string>
+	<string name="error_long_for_gsm">Die Nachricht ist zu lang. Erlaubt sind 160 Zeichen(gsm).  Eventuell Langen Text aufteilen Option aktivieren!</string>
+	<string name="contact_dev_on_error">Ein Fehler ist aufgetreten. Bitte, den Entwickle kontaktieren!</string>
+	<string name="enable_chain_sms">Langen Text aufteilen.</string>
+	<string name="enable_chain_sms_hint">Es werden die Teile mit der Länge 70 (ucs2) bzw. 160 (gsm) verschickt. Bitte guthaben beachten!</string>
 </resources>
