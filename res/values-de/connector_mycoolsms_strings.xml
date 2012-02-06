@@ -17,6 +17,11 @@
                 not, see <http://www.gnu.org/licenses/>. 
         --> 
 <resources>
+   	<string name="app_name">WebSMS - my-cool-sms.com</string>
+	<string name="app_version">2.0</string>
+	<string name="connector_author">Lado Kumsiashvili &lt;herrlado@gmail.com&gt;</string>
+	
+	<string name="connector_name">my-cool-sms.com</string>
 	<string name="connector_preferences">Einstellungen - CherrySMS</string>
 	<string name="enable_mycoolsms">Aktiviere CherrySMS</string>
 	<string name="mycoolsms_hint">Neuen cherry-sms.com Account anlegen</string>
