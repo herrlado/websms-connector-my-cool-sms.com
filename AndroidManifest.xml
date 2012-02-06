@@ -17,7 +17,7 @@
 		not, see <http://www.gnu.org/licenses/>.
 	-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
-	android:versionName="1.4" android:versionCode="14" package="org.herrlado.websms.connector.mycoolsms">
+	android:versionName="2.0" android:versionCode="20" package="org.herrlado.websms.connector.mycoolsms">
 	<application android:label="@string/app_name" android:icon="@drawable/icon"
 		android:debuggable="false">
  

@@ -38,13 +38,13 @@
 		android:inputType="phone" android:title="@string/custom_sender_"
 		android:dialogTitle="@string/custom_sender_" android:summary="@string/sender_hint"
 		android:dependency="use_default_sender" />
-		
+	<!-- 
 	<CheckBoxPreference android:key="enable_chain_sms"
 		android:defaultValue="false" android:title="@string/enable_chain_sms"
 		android:inputType="text" android:dependency="enable_mycoolsms"
 		android:summary="@string/enable_chain_sms_hint"
 		android:disableDependentsState="true" />
-
+	-->
 	<PreferenceScreen android:title="@string/mycoolsms_title">
 		<intent android:action="android.intent.action.VIEW"
 			android:data="@string/mycoolsms_url" />

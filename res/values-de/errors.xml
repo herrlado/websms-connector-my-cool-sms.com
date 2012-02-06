@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2012 Lado Kumsiashvili
+	-->
+	<!--
+		This file is part of WebSMS Connector my-cool-sms. This program is free software; you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation; either
+		version 3 of the License, or (at your option) any later version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+
+<string name="errorcode_210">Die Rufnummer scheint ungültig zu sein</string>	
+<string name="errorcode_211">Der message Parameter enthält keinen Text</string>	
+<string name="errorcode_212">Der message Parameter ist zu lang</string>
+<string name="errorcode_213">Der unicode Parameter ist true aber der message parameter wurde nicht in UCS2-Notation übergeben</string>	
+<string name="errorcode_214">Der unicode Parameter ist false aber die Nachricht wurde in UCS2-Notation übergeben</string>	
+<string name="errorcode_215">Der unicode Parameter ist false aber die Nachricht enthält Zeichen ausserhalb des GSM7 Alphabets</string>	
+<string name="errorcode_216">Der Anderer Absender hat faschles Format. Erlaubte Zeichen sind A-Z, a-z, 0-9 und - mit einer maximalen Länger von 11 Zeichen.</string>	
+<string name="errorcode_217">Kurzcode Senderkennungen sind nicht erlaubt</string>	
+<string name="errorcode_218">Die Rückruf-URL scheint ungültig zu sein</string>
+<string name="errorcode_219">Die übergebene Sendezeit scheint ungültig zu sein. Erforderliches Format ist ATOM mit Zeitzone, zum Beispiel: "2011-04-17T17:59:36.67+08" oder "2011-04-17 17:59:36-02"</string>
+    
+    
+</resources>

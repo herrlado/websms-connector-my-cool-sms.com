@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		Copyright (C) 2012 Lado Kumsiashvili
+	-->
+	<!--
+		This file is part of WebSMS Connector my-cool-sms. This program is free software; you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation; either
+		version 3 of the License, or (at your option) any later version.
+	-->
+	<!--
+		This program is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with this program; If
+		not, see <http://www.gnu.org/licenses/>.
+	-->
+<resources>
+
+<string name="errorcode_210">The number seems to be invalid</string>
+<string name="errorcode_211">The message parameter is empty</string>
+<string name="errorcode_212">The message parameter is too long</string>
+<string name="errorcode_213">The unicode parameter is set to force Unicode but the message parameter was not submitted in UCS2 notation.</string>	
+<string name="errorcode_214">The unicode parameter is set to force GSM but the message parameter was submitted with UCS2 notation</string>
+<string name="errorcode_215">The unicode parameter is set to force GSM but the message parameter contains characters outside the GSM7 alphabet</string>	
+<string name="errorcode_216">The input for Sender ID is invalid. You may use a phone number or an alphanumeric text with up to eleven characters (A-Z, a-z, 0-9 and the dash symbol).</string>	
+<string name="errorcode_217">Shortcode Sender IDs are not permitted</string>
+<string name="errorcode_218">The callbackurl parameter seems to be invalid</string>
+<string name="errorcode_219">The schedule time seems invalid. Use ATOM format and timezone, i.e.: "2011-04-17T17:59:36.67+08" or "2011-04-17 17:59:36-02"</string>
+</resources>

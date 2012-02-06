@@ -30,4 +30,15 @@
 	<string name="contact_dev_on_error">Ein Fehler ist aufgetreten. Bitte, den Entwickle kontaktieren!</string>
 	<string name="enable_chain_sms">Langen Text aufteilen.</string>
 	<string name="enable_chain_sms_hint">Es werden die Teile mit der Länge 70 (ucs2) bzw. 160 (gsm) verschickt. Bitte guthaben beachten!</string>
+	
+		
+	<string name="mycoolsms_title">https://my-cool-sms.com</string>
+	<string name="mycoolsms_url">http://www.my-cool-sms.com?ref=websms</string>
+	
+	<string name="mycoolsms_charge_url">https://www.my-cool-sms.com/de/konto-aufladen/ref/websms</string>
+	<string name="charge_account_">Guthaben aufladen</string>
+	
+	<string name="mycoolsms_create_account_url">https://www.my-cool-sms.com/de/anmeldung-sms-portal-sms-gateway-prepaid-sms-api/ref/websms</string>
+	<string name="mycoolsms_create_account_">Neues Konto erstellen</string>
+	
 </resources>
