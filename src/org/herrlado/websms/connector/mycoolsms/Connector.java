@@ -124,9 +124,9 @@ public final class Connector extends
 			if (jsonText == null || jsonText.length() == 0) {
 				throw new WebSMSException(ctx.context, R.string.error_service);
 			}
-			Log.d(TAG, "--HTTP RESPONSE--");
-			Log.d(TAG, jsonText);
-			Log.d(TAG, "--HTTP RESPONSE--");
+			// Log.d(TAG, "--HTTP RESPONSE--");
+			// Log.d(TAG, jsonText);
+			// Log.d(TAG, "--HTTP RESPONSE--");
 			JSONObject r = new JSONObject(jsonText);
 			return r;
 		} catch (Exception e) {
