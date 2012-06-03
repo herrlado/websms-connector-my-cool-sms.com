@@ -22,8 +22,8 @@
 	<string name="connector_author">Lado Kumsiashvili &lt;herrlado@gmail.com&gt;</string>
 	
 	<string name="connector_name">my-cool-sms.com</string>
-	<string name="connector_preferences">Preferences - my-cool-sms.com</string>
-	<string name="enable_mycoolsms">Enable my-cool-sms.com</string>
+	<string name="connector_preferences">Preferences - My-Cool-SMS</string>
+	<string name="enable_mycoolsms">Enable My-Cool-SMS</string>
 	
 	<string name="mycoolsms_title">https://my-cool-sms.com</string>
 	<string name="mycoolsms_url">http://www.my-cool-sms.com/?ref=websms</string>
@@ -39,5 +39,5 @@
 	<string name="show_sms_amount">Show free sms amount</string>
 	<string name="show_sms_amount_hint">Show sms amount, rather than amount of money.</string>
 
-	
+	<string name="connector_name">my-cool-sms.com</string>
 </resources>

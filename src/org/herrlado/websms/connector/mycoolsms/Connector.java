@@ -34,6 +34,7 @@ import de.ub0r.android.websms.connector.common.ConnectorSpec;
 import de.ub0r.android.websms.connector.common.ConnectorSpec.SubConnectorSpec;
 import de.ub0r.android.websms.connector.common.Log;
 import de.ub0r.android.websms.connector.common.Utils;
+import de.ub0r.android.websms.connector.common.Utils.HttpOptions;
 import de.ub0r.android.websms.connector.common.WebSMSException;
 
 /**
@@ -111,9 +112,14 @@ public final class Connector extends
 
 		try { // get Connection
 				// send data
-			HttpResponse response = Utils.getHttpClient(
-					API_URL_BASE.toString(), null, obj, API_USER_AGENT, null,
-					"utf-8", false);
+			HttpOptions options = new HttpOptions("utf-8");
+			options.url = API_URL_BASE;
+			options.addJson(obj);
+			options.userAgent = API_USER_AGENT;
+			options.trustAll = true;
+			HttpResponse response = Utils.getHttpClient(options);
+			// API_URL_BASE.toString(), null, obj, API_USER_AGENT, null,
+			// "utf-8", true);
 			int resp = response.getStatusLine().getStatusCode();
 			if (resp != HttpURLConnection.HTTP_OK) {
 				throw new WebSMSException(ctx.context, R.string.error_http, ""

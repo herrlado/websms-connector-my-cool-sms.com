@@ -18,13 +18,12 @@
         --> 
 <resources>
    	<string name="app_name">WebSMS - my-cool-sms.com</string>
-	<string name="app_version">2.0</string>
+	<string name="app_version">2.2</string>
 	<string name="connector_author">Lado Kumsiashvili &lt;herrlado@gmail.com&gt;</string>
 	
-	<string name="connector_name">my-cool-sms.com</string>
-	<string name="connector_preferences">Einstellungen - CherrySMS</string>
-	<string name="enable_mycoolsms">Aktiviere CherrySMS</string>
-	<string name="mycoolsms_hint">Neuen cherry-sms.com Account anlegen</string>
+	<string name="connector_preferences">Einstellungen - My-Cool-SMS</string>
+	<string name="enable_mycoolsms">Aktiviere My-Cool-SMS</string>
+	<string name="mycoolsms_hint">Neuen My-Cool-SMS Konto anlegen</string>
 	<string name="show_sms_amount">Guthaben als SMS Anzahl</string>
 	<string name="show_sms_amount_hint">Zeigt die Anzahl der restlichen SMSe, anstatt des Restguthabens</string>
 	
@@ -45,5 +44,6 @@
 	
 	<string name="mycoolsms_create_account_url">https://www.my-cool-sms.com/de/anmeldung-sms-portal-sms-gateway-prepaid-sms-api/ref/websms</string>
 	<string name="mycoolsms_create_account_">Neues Konto erstellen</string>
+	<string name="connector_name">my-cool-sms.com</string>
 	
 </resources>
